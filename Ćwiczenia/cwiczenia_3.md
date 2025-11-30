@@ -57,7 +57,9 @@ void Hanoi(){
 }
 ```
 
-### Kopiec / Heap
+<br/><br/>
+
+### Kopiec / Heap (tablicowo)
 
 Jest to drzewo, które ma po lewej więcej elementów niż po prawej
 
@@ -73,18 +75,49 @@ Jest to drzewo, które ma po lewej więcej elementów niż po prawej
 
 - Powtarzaj, aż element znajdzie właściwe miejsce lub trafi do korzenia.
   
-        10                         10                            12
-       /  \                         /  \                            /  \
-      7    9                    7    12                     7    10
-  
-     / \    /                    / \    /                      / \     /
-    3  5  12               3  5  9                    3   5  9
+         10                        10                          12
+        /  \                      /  \                        /  \
+       7    9                    7    12                     7    10
+      / \  /                    / \   /                     / \   /
+      3 5 12                   3   5  9                    3   5 9
 
-**down_heap() == delete_max()**
+<br/>
 
+Wstawianie nowego elementu do kopca w sposób uporządkowany
+
+```cpp
+void up_heap(int i)
+{
+    while (i>1) 
+    {
+        int rodzic = i/2;
+        if (Tab[rodzic] >= Tab[i])
+            break;
+
+        Tab[rodzic] <--> Tab[i];
+        i = rodzic;
+    }
+}
+
+
+void insert(int value)
+{
+    Tab[++n] = value;
+    up_heap(n);
+}
+```
+
+<br/>
+
+**down_heap()**
+
+Jeżeli usunęliśmy największy element z korzenia, musimy naprawić kopiec. Przesuwamy się od góry do dołu funkcją ***down_heap()***
 Dodajemy element mały na korzeń, następnie będzie on spadał w dół, zamieniając się z elementem większych z 2 dzieci. 
 
 ```cpp
+// Przekazujemy 'i' jako arg, bo wtedy dziala od każdego elementu A[i]
+// Jeśli od korzenia to i=1
+
 void down_heap(int i, int n) { 
     while (true) {       # jest wiele punktów wyjścia, dlatego 'true'
         if (2*i > n){
@@ -106,6 +139,26 @@ void down_heap(int i, int n) {
 }
 ```
 
-**Budowanie kopca**
+<br/>
 
-kolejna lekcja
+Przykład użycia do budowy kopca:
+
+```cpp
+void build_heap(int A[], int n) {
+    // startujemy od ostatniego węzła wewnętrznego (z min 1 dzieckiem)
+    for (int i = n/2; i >= 1; i--) {
+        down_heap(A, i, n);
+    }
+}
+
+int main() {
+    int A[11] = {0, 3, 1, 6, 5, 2, 4, 8, 7, 9, 0};  
+    int n = 10;
+
+    build_heap(A, n);
+} 
+
+// WYNIK: 9 7 8 5 3 4 6 1 2 0
+```
+
+**Kopiec - właściwości**Minus: wyszukiwanie elementu, trzeba przejrzeć wszystkie elementy

@@ -1,8 +1,18 @@
 # Lekcja nr 5
 
-## Drzewa dwumianowe
+## Drzewa dwumianowe = kolejka dwumianowa = Beap
 
 ![iT 邦幫忙::一起幫忙解決難題，拯救IT 人的一天](https://ithelp.ithome.com.tw/upload/images/20221009/201519100B8ODsvPfE.png)
+
+**Właściwości** - drzewo Bₖ
+
+- ma dokładnie **2ᵏ** węzłów
+
+- wysokość drzewa to **k**
+
+- liczba dzieci korzenia to **k**
+  
+  <br/>
 
 Implementacja węzła
 
@@ -84,6 +94,12 @@ node* Merge(node* p1, node* p2)
 ```
 
 ! Aby móc połączyć dwa drzewa dwumianowe, muszą być one tej samej wysokości !
+
+![](images/c3d65bcf79b7438d1ea1eaf23849f964bf0a8140.png)
+
+<br/>
+
+## Kopiec Fibonaciego
 
 #### zmien ta kurwa funckje
 
@@ -194,5 +210,3 @@ void add_to_end(node* &head, node* tree)
     return;
 }
 ```
-
- 
