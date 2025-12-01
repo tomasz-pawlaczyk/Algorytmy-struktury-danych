@@ -11,6 +11,4 @@ Kolejka priorytetowa to struktura danych, która zawsze zwraca element o najwyż
 
 Wstawianie do 
 
-
-
 NAPISZ opcje wyświetlania kolejek priorytetowych

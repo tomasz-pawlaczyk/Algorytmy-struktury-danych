@@ -161,4 +161,5 @@ int main() {
 // WYNIK: 9 7 8 5 3 4 6 1 2 0
 ```
 
-**Kopiec - właściwości**Minus: wyszukiwanie elementu, trzeba przejrzeć wszystkie elementy
+**Kopiec - właściwości**
+Minus: wyszukiwanie elementu, trzeba przejrzeć wszystkie elementy

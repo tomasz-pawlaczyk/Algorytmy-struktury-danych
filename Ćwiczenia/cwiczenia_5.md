@@ -1,6 +1,6 @@
 # Lekcja nr 5
 
-## Drzewa dwumianowe = kolejka dwumianowa = Beap
+## Drzewa dwumianowe = kopiec dwumianowy = Beap
 
 ![iT 邦幫忙::一起幫忙解決難題，拯救IT 人的一天](https://ithelp.ithome.com.tw/upload/images/20221009/201519100B8ODsvPfE.png)
 
@@ -95,49 +95,44 @@ node* Merge(node* p1, node* p2)
 
 ! Aby móc połączyć dwa drzewa dwumianowe, muszą być one tej samej wysokości !
 
+## Kolejka dwumianowa
+
+Jest to zbiór połączonych ze sobą drzew dwumianowych różnej wysokości 
+
 ![](images/c3d65bcf79b7438d1ea1eaf23849f964bf0a8140.png)
+
+<u>Wizualizacja łączenia kolejek dwumianowych</u>
+
+![](images/8181b146b2cebeaba9d39b97a9c86ffc7c6109eb.png)
+
+Łączenie kolejek dwumianowych można porównać do dodawania liczb binarnych
 
 <br/>
 
-## Kopiec Fibonaciego
-
-#### zmien ta kurwa funckje
+**Funkcje:**
 
 ```cpp
-bool czy_mark_jest_poprawny(node *root)
+// Sprawdzamy poprawność kolejki dwumianowej
+bool czy_poprawna_kolejka(node* root)
 {
-    int len = 0;
-    for (node *this = root->child; this != NULL; this = this->next)
+    node* obecny = root->child;
+    int dlugosc = 1;
+
+    while (obecny != NULL)
     {
-        len += 1;
+        if (obecny->height != dlugosc)
+            return false;
+
+        obecny = obecny->next;
+        dlugosc += 1;
     }
 
-    if (len == root->height)
-        return (bool)mark;
-    else
-        return (bool)(1-mark);
-}
-
-
-//proba zmiany
-bool czy_mark_jest_poprawny(node* root)
-{
-    node* p = root->child;
-    int len = 0;
-
-    while (p != NULL)
-    {
-        this = this->next;
-        len += 1;
-    }
-
-    //(....)
+    return true
 }
 ```
 
 ```cpp
 // Sprawdzamy jakiej wysokości drzewa brakuje
-
 int drzewa_o_jakiej_wysokosci_brakuje(node* root)
 {
     int licznik = 0;
@@ -163,7 +158,7 @@ Wyjaśnienie przekazywania zmiennej:
 Czyli:
 
 **`node* &head` = referencja do wskaźnika na node.**  
-Daje to funkcji możliwość zmiany tego wskaźnika na stałe.
+Różnica pomiędzy występowaniem **```&```** a jego brakiem to fakt, że zmieniamy ten wskaźnik na stałe, a nie przekazujemy tylko jego kopii.
 
 ```cpp
 // Usuwamy i zwracamy pierwsze drzewo z lewej strony
@@ -181,7 +176,7 @@ node *Extract(node* &head)
     if (head != NULL)
         head->prev = last;
 
-    p->next = NULL
+    p->next = NULL;
     p->prev = p;
 
     return p;
@@ -209,4 +204,11 @@ void add_to_end(node* &head, node* tree)
 
     return;
 }
+```
+
+Może się mylić z drugim zastosowaniem, kiedy używamy **```&```** do wyłuskania adresu:
+
+```
+int wartosc = 5;
+int* adres = &wartosc;
 ```
