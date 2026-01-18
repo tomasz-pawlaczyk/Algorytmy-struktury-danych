@@ -1,16 +1,18 @@
 # Drzewa AVL
 
-![](images/addec12e5333fb26ea3edcde696ddae1a97b5d2a.png)
+Drzewa AVL to drzewa BST, w których dla każdego węzła różnica wysokości lewego i prawego poddrzewa jest ograniczona do 1.
+Dzięki temu drzewo zachowuje **logarytmiczną wysokość**.
+
+<img title="" src="../images/a238cb45b8490a6553da5913475588f7b685bf62.png" alt="" width="479">
 
 Właściwości:
 
-- Jest to pochodna drzew BST - zachowane wartości mniejsze / większe
-
-- Są one zrównoważone
-
-- zawierają pole **```balans```**, które jest różnicą wysokości prawego i lewego podrzewa, powinno zawierać się w zbiorze {-1, 0, 1}
-
-Są to drzewa gdzie dla każdego węzła wysokość podrzew różni się nie więcej niż o 1 poziom. 
+- Są one **zrównoważone**
+- dla każdego węzła: |wysokość(lewe) − wysokość(prawe)| ≤ 1
+- złożoność czasowa:
+  - **O(log n)** – wyszukiwanie  
+  - **O(log n)** – wstawianie  
+  - **O(log n)** – usuwanie  
 
 Struktura węzła:
 
@@ -26,11 +28,11 @@ ALBO: node* next[2];
 
 Mogą wystąpić 4 typy nierówności
 
-![](images/bd4982ffef746bd3df090dffd25f0e77d4af51fe.png)
+![](../images/5d3303fac87a564da773b68bfdc0cba475f50c76.png)
 
 **Rotacja Right-Left**
 
-![](images/8828a4bc8925cafd40fe230542e27afab7e09906.png)
+![](../images/63e0882c07be11f4c73c4b8d1383e3ca45bc6d16.png)
 
 ## Implementacje funkcji wyrównywania
 
@@ -171,3 +173,11 @@ void Insert(node* &root, int value, bool &czy_urosło)
     czy_urosło = false;
 }
 ```
+
+## Złożoności operacji
+
+- wyszukiwanie: **O(log n)**
+
+- wstawianie: **O(log n)**
+
+- usuwanie: **O(log n)**

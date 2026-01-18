@@ -149,8 +149,8 @@ void Delete(int value)
     {
         if ( (*p)->next[0] && (*p)->next[1] )
         {
-            int b = losuj(left, right);
-            pomoc = &( (*p)->next[b]);    // jeśli najpierw w prawo, 
+            int b = losuj(0, 1);
+            pomoc = &( (*p)->next[b] );    // jeśli najpierw w prawo, 
             while( (*pomoc)->next[1-b] )  // to potem ciągle w lewo
                 pomoc = &( (*pomoc)->next[1-b] );
             do_usuniecia = *pomoc;
