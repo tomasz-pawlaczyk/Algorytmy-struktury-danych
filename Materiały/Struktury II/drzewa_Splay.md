@@ -6,9 +6,9 @@ Drzewo Splay jest samoorganizującą się strukturą, gwarantującą efektywny d
 
 Właściwości:
 
-- złożoność pesymistyczna: O(n)
+- złożoność pesymistyczna: **O(n)**
 
-- złożoność średnia/zamortyzowana: O(log n)
+- złożoność średnia/zamortyzowana: **O(log n)**
 
 Wizualizacja funkcji **Splay(5)**
 
@@ -98,6 +98,46 @@ Sposoby cofania się w drzewach:
 
 - rekurencyjnie
 
+#### Funkcje zygzakowate
+
+![](../images/ad9cfebab46240019bd6bf1db0c7fabff46469f3.gif)
+
+```c
+void LZigZig (node* &p) 
+{
+    node* x = p->left;
+    node* y = x->left;
+
+    x->left = y->right;
+    y->right = x;
+
+    p->left = x->right;
+    x->right = p;
+
+    p = y;
+}
+```
+
+![](../images/184749e381feefdf92dcf112dec0b9d69c662472.svg)
+
+```c
+void LZigZag(node* &p)
+{
+    node* x = p->left;
+    node* y = x->right;
+
+    x->right = y->left;
+    y->left = x;
+
+    p->left = y->right;
+    y->right = p;
+
+    p = y;
+}
+```
+
+
+
 Szukanie
 
 ```cpp
@@ -125,14 +165,14 @@ node* Insert(int value)
         nowy->left = root;
         nowy->right = root->right;
         root->right = NULL;
-        root = nowy;
     }
     else {
         nowy->left = root->left;
         nowy->right = root;
         root->left = NULL;
-        root = nowy;
     }
+    
+    root = nowy;
     return nowy;    
 }
 ```

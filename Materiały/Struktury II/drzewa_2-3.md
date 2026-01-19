@@ -39,14 +39,15 @@ Schemat konstruowania:
 
 # 2-3-4 Drzewa
 
-**Drzewo 2–3–4** to samobalansujące drzewo wyszukiwań.
+**Drzewo 2–3–4** to samobal
+
+ansujące drzewo wyszukiwań.
 Każdy węzeł może zawierać **1, 2 lub 3 klucze**.
 
 ![](../images/d357511bade819bddbf73ce019965a81b0cfb6de.png)
 
 ### Właściwości
 
-- 
 - klucze w węźle są uporządkowane  
 - wszystkie liście **są na tym samym poziomie**  
 - drzewo jest zawsze **zbalansowane**
@@ -94,4 +95,3 @@ struct node {
 
 - **2–3–4 drzewo** jest „szersze i niższe”  
 - **2–3 drzewo** jest „węższe i wyższe”  
-- 

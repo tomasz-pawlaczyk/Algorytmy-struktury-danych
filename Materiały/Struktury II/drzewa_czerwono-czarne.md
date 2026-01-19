@@ -53,3 +53,5 @@ Potem dodając węzęł **`1`**  musieliśmy zmienić kolory kierując się od g
 Finałowe drzewo wygląda następująco
 
 <img title="" src="../images/e576d8a188d18859bc0d6593e2e0e7f8a9bfbbd5.png" alt="" width="526">
+
+#### 

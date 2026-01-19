@@ -13,6 +13,12 @@ Jest szeroko stosowane w **systemach baz danych i systemach plików**, ponieważ
 - struktura ma **k+1** wskaźników na dolne elementy
 - operacje: wyszukiwanie, wstawianie, usuwanie → **O(log n)**
 
+#### Definicje:
+
+**Rząd B-drzewa** (`m`): minimalna liczba kluczy w każdej stronie (poza korzeniem); strona ma od **m do 2m kluczy
+
+**Liczba `k`**: aktualna liczba kluczy zapisanych w danej stronie
+
 <br>
 
 ![](../images/81478806211e48a2bc095ad34c5b22ebddb7f1f6.png)
@@ -76,3 +82,8 @@ Rozbijamy górny węzeł na 2 mniejsze, a aktualny środkowy element będzie je 
 i pełnił rolę root'a
 
 ![](../images/dbd201a62aa161cdee8c74a7978a491ef587bae4.png)
+
+#### Usuwanie
+
+Dodając - zawsze szliśmy w górę
+Usuwając - zawsze idziemy w dół
